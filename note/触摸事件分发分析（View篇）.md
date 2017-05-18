@@ -1,4 +1,4 @@
-                      # view的时间分析 #
+                      # view的事件分析 #
 
 ## dispatchTouchEvent ##
 
