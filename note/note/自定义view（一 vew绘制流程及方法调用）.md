@@ -3,7 +3,7 @@
 View是屏幕上的一块矩形区域，它负责用来显示一个区域，并且响应这个区域内的事件。可以说，手机屏幕上的任意一部分看的见得地方都是View，它很常见，比如 TextView 、ImageView 、Button以及LinearLayout、RelativeLayout都是继承子View的。
  对于Activity来说，我们通过setContentView(view)添加的布局到Activity上，实际上都是添加到了Activity 内部的DecorView上面，这个DecorView，其实就是一个FrameLayout,因此实际上，我们的布局实际上添加到了FrameLayout里面。
 ![](http://i.imgur.com/WIJIbNC.png)
-![](http://i.imgur.com/9orXmzO.png)
+![](http://i.imgur.com/yLGzSfZ.png)
 
 ## 2、view是怎么工作的 ##
 View的工作流程分为两部分，第一部分 显示在屏幕上的过程, 第二部分 响应屏幕上的触摸事件的过程。对于显示在屏幕上的过程：是View 从无到有，经过测量大小(Measure)、确定在屏幕中的位置(Layout)、以及最终绘制在屏幕上(Draw) 这一系列的过程。对于响应屏幕上的触摸事件的过程：则是Touch事件的分发过程(这一部分，在这里先不涉及)。 Measure() Layout()方法是final修饰的，无法重写 ，Draw()虽然不是final的，但是也不建议重写该方法。
