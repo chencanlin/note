@@ -4,7 +4,7 @@ saveLayer可以为canvas创建一个新的透明图层，在新的图层上绘�
 
 paint setXferMode时图层的影响：
 
-如果没有创建图层直接在canvas上画图，假如先画一个圆（背景图）在固定的一个矩形区域，然后设置paint的xferMode 为new PorterDuffXfermode(PorterDuff.Mode.SRC_IN) 继续画另外一张bitmap图片(源图像)在这个矩形区域，你的想象中是不是会显示一张圆形的图片（取交集部分显示源图像内容），但是实际上会把你的源图像全部展现出来，这是为什么呢？因为canvas的背景默认不是透明（猜测，因为xfermode实际上与透明度有关系，后面会讲），canvas的背景与之前画的圆圈都被算作了背景图，所以你画源图像时交集部分实际是整个源图像显示的也就是整个源图片，代码如下
+如果没有创建图层直接在canvas上画图，假如先画一个圆（背景图）在固定的一个矩形区域，然后设置paint的xferMode 为new PorterDuffXfermode(PorterDuff.Mode.SRC_IN) 继续画另外一张bitmap图片(源图像)在这个矩形区域，你的想象中是不是会显示一张圆形的图片（取交集部分显示源图像内容），但是实际上会把你的源图像全部展现出来，这是为什么呢？因为canvas的背景默认不是透明（指的是ondraw方法传过来的canvas实际是有背景的，如果你重新创建一个canvas背景应该是透明的）（猜测，因为xfermode实际上与透明度有关系，后面会讲），canvas的背景与之前画的圆圈都被算作了背景图，所以你画源图像时交集部分实际是整个源图像显示的也就是整个源图片，代码如下
 
 	     @Override
 	    protected void onDraw(Canvas canvas) {
